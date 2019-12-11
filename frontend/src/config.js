@@ -16,7 +16,7 @@ const configs = {
         },
         txeplorerurl: "https://ropsten.etherscan.io/tx",
         networknote: "Ropsten",
-        ipfshost: { host: 'web3.ipfs.party', port: 5001, protocol: 'https' },
+        ipfshost: { host: 'ipfs.web3.party', port: 5001, protocol: 'https' },
     },    
     production: {
         name: "prod",
