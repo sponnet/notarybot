@@ -9,7 +9,6 @@ const configs = {
         networknote: "Ropsten",
         ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
     },
-
     production: {
         name: "prod",
         api: {

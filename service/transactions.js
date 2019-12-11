@@ -1,5 +1,5 @@
 const ethers = require("ethers");
-const config = require("./config");
+const config = require("config");
 const axios = require("axios");
 
 const provider = new ethers.providers.JsonRpcProvider(config.ethers.jsonproviderurl);
