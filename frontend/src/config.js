@@ -2,21 +2,30 @@ const configs = {
     development: {
         name: "dev",
         api: {
-            URL: "ws://localhost:5005",
-            HTTPURL: "http://localhost:5005"
+            URL: "wss://ropsten.api.robonotary.datapinner.com",
+            HTTPURL: "https://ropsten.api.robonotary.datapinner.com"
         },
         txeplorerurl: "https://ropsten.etherscan.io/tx",
         networknote: "Ropsten",
         ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
     },
-    production: {
+    ropsten: {
         name: "prod",
         api: {
-            URL: "ws://localhost:5005",
+            URL: "wss://localhost:5005",
             HTTPURL: "http://localhost:5005"
         },
         txeplorerurl: "https://etherscan.io/tx",
-        ipfshost: "https://ipfs.io:5001",
+        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
+    },
+    production: {
+        name: "prod",
+        api: {
+            URL: "wss://localhost:5005",
+            HTTPURL: "http://localhost:5005"
+        },
+        txeplorerurl: "https://etherscan.io/tx",
+        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
     }
 };
 let config = process.env.REACT_APP_STAGE
