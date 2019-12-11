@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const printf = require("printf");
 const models = require("./models");
 const morgan = require('morgan')
-const config = require("./config");
+const config = require("config");
 
 const cors = corsMiddleware({
     preflightMaxAge: 5, //Optional
@@ -20,6 +20,8 @@ const server = restify.createServer({
     name: "ROBONOTARY",
     version: "1.0.0"
 });
+
+console.log(config);
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());

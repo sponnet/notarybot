@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const path = require("path");
-const config = require("./config");
+const config = require("config");
 
 const fileName = path.join(__dirname, config.databasefile);
 

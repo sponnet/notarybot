@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const models = require("./models");
 const Sequelize = require("sequelize");
-const config = require("./config");
+const config = require("config");
 const EventEmitter = require('events');
 class MyEmitter extends EventEmitter { }
 const events = new MyEmitter();
