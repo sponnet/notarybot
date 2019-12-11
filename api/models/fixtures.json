@@ -1,0 +1,23 @@
+[
+    {
+        "model": "keyvalue",
+        "data": {
+            "key": "nextnotaryevent",
+            "value": "0"
+        }
+    },
+    {
+        "model": "keyvalue",
+        "data": {
+            "key": "roothash",
+            "value": "0"
+        }
+    },
+    {
+        "model": "keyvalue",
+        "data": {
+            "key": "txhash",
+            "value": "0"
+        }
+    }
+]
