@@ -32,8 +32,7 @@ function App({ bootstrap }) {
                                     <div className="hero-body">
                                         <RootComponent parentpath={parentPath} rootpath={rootPath} {...props} />
                                     </div>
-                                    <div className="hero-foot">
-                                        foot
+                                    <div className="hero-foot">                                       
                                     </div>
                                 </section>
                             )}
