@@ -1,15 +1,5 @@
 const configs = {
     development: {
-        name: "dev",
-        api: {
-            URL: "wss://ropsten.api.robonotary.datapinner.com",
-            HTTPURL: "https://ropsten.api.robonotary.datapinner.com"
-        },
-        txeplorerurl: "https://ropsten.etherscan.io/tx",
-        networknote: "Ropsten",
-        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
-    },
-    ropsten: {
         name: "prod",
         api: {
             URL: "wss://localhost:5005",
@@ -18,6 +8,16 @@ const configs = {
         txeplorerurl: "https://etherscan.io/tx",
         ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
     },
+    ropsten: {
+        name: "dev",
+        api: {
+            URL: "wss://ropsten.api.robonotary.datapinner.com",
+            HTTPURL: "https://ropsten.api.robonotary.datapinner.com"
+        },
+        txeplorerurl: "https://ropsten.etherscan.io/tx",
+        networknote: "Ropsten",
+        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
+    },    
     production: {
         name: "prod",
         api: {
