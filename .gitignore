@@ -1,2 +1,3 @@
 api/data/reststore
 service/config/local.js
+api/config/local.js
