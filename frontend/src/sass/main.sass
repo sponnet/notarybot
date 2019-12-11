@@ -1,0 +1,157 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+// **********************************
+//  overwrites
+// **********************************
+
+//$relai-green: #21D0B2
+//$relai-dark: #1E2A38
+//$relai-grey: #C6C6C6
+
+//$primary: $relai-green
+//$body-family: 'Roboto', sans-serif
+$body-family: 'Roboto Mono', monospace;
+
+//$button-border-width: 3px
+//$button-color: blue
+//$button-padding-vertical: 0.75em
+
+p
+    font-weight: 300
+
+
+
+@import "../../node_modules/bulma/bulma.sass"
+// @import '../../node_modules/bulma-slider/src/sass/index.sass'
+@import '../../node_modules/bulma-timeline/src/sass/index.sass'
+
+.info-tiles 
+  margin: 1rem 0;
+
+.info-tiles .subtitle 
+  font-weight: 300;
+  color: #8F99A3;
+
+
+.App 
+    color: #747474;
+
+.App .navbar
+    background-color:  #0D1E61
+    color: white
+
+.App .navbar-item 
+    color: white
+
+.relai-dark-icon
+    color: #0D1E61
+
+.relai-max
+   min-height: 80vh;
+
+.hero.is-fullheight .relai-max .hero-body
+    display: block;
+    align-items: top;
+
+.hero.is-fullheight .hero-body.relai-align-top
+    align-items: normal;
+
+
+
+.App input[type="radio"]
+  visibility: hidden
+  height: 0
+  width: 0
+
+.App label
+  vertical-align: middle
+  text-align: center
+
+.App .relai-tap-label input[type="radio"] + label
+    color: #aaa
+    background-color: transparent
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+
+.App .relai-tap-label input[type="radio"]:checked + label
+    color: #777
+    font-weight: bold;
+    background-color: transparent
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+
+.App input[type="radio"]:checked + label
+    background-color: rgba(13,30,97,1)
+    -webkit-box-shadow: 2px 8px 5px -1px rgba(184,184,184,1)
+    -moz-box-shadow: 2px 8px 5px -1px rgba(184,184,184,1)
+    box-shadow: 2px 8px 5px -1px rgba(184,184,184,1)
+    color: white
+
+.modal-card-head
+    background-color: white
+    border-bottom: none
+
+.modal-card-foot
+    background-color: white
+    border-top: none
+
+.hero.is-fullheight .hero-body.relai-top-aligned
+    align-items: start
+
+.hero.is-fullheight .hero-body.relai-no-padding
+    padding: unset
+
+// **********************************
+//  Global styles/classes
+// **********************************
+
+._logo
+    width: 128px
+    height: 128px
+
+._logo-small
+    width: 50px
+    height: 50px
+
+._smallicon 
+    width: 25px
+    height: 25px
+ 
+
+.hero-foot 
+    box-sizing:border-box
+    padding: 1.5em 1.5rem 2.5em 1.5em
+
+.customwidth 
+    max-width: 500px
+    width: 80vw
+
+._medium-weight 
+    font-weight: 500
+
+// **********************************
+// the inner page container elements
+// that cover all the space given to it
+// **********************************
+
+
+.dropzone 
+    background: $white-bis;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    margin-left: auto;
+    margin-right: auto;
+
+.dropzone-text 
+    padding-top: 4em;
+    padding-bottom: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 2em;
+
+
