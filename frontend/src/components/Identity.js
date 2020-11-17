@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import DownloadLink from "react-download-link";
 import { Link } from "react-router-dom";
 
 const Comp = ({ wallet, ownershipproofs, setOwnershipProofs }) => {

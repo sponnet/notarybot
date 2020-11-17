@@ -1,6 +1,6 @@
 
 import { PromiseBlackBox } from '@oqton/redux-black-box';
-import { Wallet, utils } from "ethers";
+import { Wallet } from "ethers";
 
 export const initialState = {
     pk: null,

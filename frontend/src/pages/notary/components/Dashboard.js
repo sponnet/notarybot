@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-// import "./Dashboard.css";
 import { send } from '@giantmachines/redux-websocket';
 import config from "../../../config.js";
-import { Link } from "react-router-dom";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Back from "../../../components/Back.js";
 
 const isIPFS = require('is-ipfs');

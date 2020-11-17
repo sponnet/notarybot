@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { send } from '@giantmachines/redux-websocket';
-import config from "../../../config.js";
 import { Link } from "react-router-dom";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DownloadLink from "react-download-link";
 import Back from "../../../components/Back.js";
 
-const Comp = ({ parentpath, wallet, ownershipproofs, setOwnershipProofs }) => {
+const Comp = ({ parentpath, wallet }) => {
 
     if (!wallet) {
         return (<div>No wallet</div>);
