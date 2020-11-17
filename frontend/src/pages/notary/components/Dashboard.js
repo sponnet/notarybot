@@ -77,11 +77,15 @@ const Comp = ({ parentpath, txhash, roothash }) => {
         }
     }
 
+    const readHashCBH = useCallback((roothash, txhash, PAGESIZE) => {
+        readHash(roothash, txhash, PAGESIZE);
+    }, [])
+
     useEffect(() => {
         if (roothash && txhash) {
-            readHash(roothash, txhash, PAGESIZE);
+            readHashCBH(roothash, txhash, PAGESIZE);
         }
-    }, [roothash, txhash, readHash]);
+    }, [roothash, txhash]);
 
     const [timeLine, setTimeLine] = useState([]);
     const [lastHash, setLastHash] = useState();
