@@ -95,6 +95,7 @@ module.exports = server => {
     // fetch info of array of hashes
     gethashes = async (req, res, next) => {
         const hashes = req.body;
+        console.log("Get info on hashes",hashes)
         if (!Array.isArray(hashes)) {
             return res.send(400, "no array of hashes provided");
         }

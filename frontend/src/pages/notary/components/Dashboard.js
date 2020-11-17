@@ -44,7 +44,7 @@ const NotaryBlock = ({ amount, hash, txhash }) => {
                 <a href={`${config.txeplorerurl}/${txhash}`}>{txhash}</a>
             </p>
             <p>
-                <a href={`https://ipfs.io/ipfs/${hash}`}>{hash}</a>
+                <a href={`${config.ipfsgw}/${hash}`}>{hash}</a>
             </p>
             {hashes ? (
                 <>
@@ -67,7 +67,7 @@ const Comp = ({ parentpath, txhash, roothash }) => {
         const r = await ipfs.catJSON(hash);
         console.log(r);
         const hashesNotarized = r.hashes ? r.hashes.length : 0;
-        accum.push((<NotaryBlock amount={hashesNotarized} hash={hash} txhash={txhash} />));
+        accum.push((<NotaryBlock key={hash} amount={hashesNotarized} hash={hash} txhash={txhash} />));
 
         if (depth <= 0 || !isIPFS.multihash(r.parenthash)) {
             console.log("SetTimeline goddomme->", accum, hash, r.parenthash);
@@ -101,13 +101,14 @@ const Comp = ({ parentpath, txhash, roothash }) => {
                 {timeLine}
                 {!loading && (
                     <>
-                        {lastHash && lastTx ? (
+                        {lastHash && lastHash.length>1 && lastTx ? (
                             <div className="timeline-header">
                                 <span className="tag is-medium is-primary" onClick={() => { readHash(lastHash, lastTx, PAGESIZE) }}>Load more</span>
-                            </div>
+
+{lastHash}, {lastTx}                            </div>
                         ) : (
                                 <div className="timeline-header">
-                                    <span className="tag is-medium is-primary">Start of history</span>
+                                    <span className="tag is-medium is-primary">Start</span>
                                 </div>
                             )}
                     </>

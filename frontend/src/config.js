@@ -2,11 +2,12 @@ const configs = {
     development: {
         name: "prod",
         api: {
-            URL: "wss://localhost:5005",
+            URL: "ws://localhost:5005",
             HTTPURL: "http://localhost:5005"
         },
-        txeplorerurl: "https://etherscan.io/tx",
-        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
+        txeplorerurl: "https://ropsten.etherscan.io/tx",
+        ipfshost: { host: '80.208.229.228', port: 5001, protocol: 'http' },
+        ipfsgw: "http://80.208.229.228:8080/ipfs"
     },
     ropsten: {
         name: "dev",
@@ -16,7 +17,8 @@ const configs = {
         },
         txeplorerurl: "https://ropsten.etherscan.io/tx",
         networknote: "Ropsten",
-        ipfshost: { host: 'ipfs.web3.party', port: 5001, protocol: 'https' },
+        ipfshost: { host: '80.208.229.228', port: 5001, protocol: 'http' },
+        ipfsgw: "http://80.208.229.228:8080/ipfs"
     },    
     production: {
         name: "prod",
@@ -25,7 +27,8 @@ const configs = {
             HTTPURL: "http://localhost:5005"
         },
         txeplorerurl: "https://etherscan.io/tx",
-        ipfshost: { host: '23.254.227.151', port: 5001, protocol: 'http' },
+        ipfshost: { host: '80.208.229.228', port: 5001, protocol: 'http' },
+        ipfsgw: "http://80.208.229.228:8080/ipfs"
     }
 };
 let config = process.env.REACT_APP_STAGE

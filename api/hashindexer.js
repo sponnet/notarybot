@@ -23,13 +23,13 @@ module.exports = (server) => {
             events.emit("indexupdated");
             return;
         }
-
+        console.log("looking up TX",txhash);
         provider.getTransaction(txhash).then((t) => {
-            // console.log("t=", t);
+            console.log("t=", t);
             provider.getBlock(t.blockNumber).then((b) => {
-                // console.log("b=", b);
+                console.log("b=", b);
                 const hash = ethers.utils.toUtf8String(t.data);
-                // console.log("hash=", hash);
+                console.log("hash=", hash);
                 ipfs.catJSON(hash, (err, data) => {
                     if (err) {
                         console.log(`ipfs error`, err);
@@ -75,12 +75,12 @@ module.exports = (server) => {
                 })
             }).catch((e) => {
                 // cannot find txhash
-                console.log(`txhash ${txhash} not found`);
+                console.log(`txhash ${txhash} not found`,e);
                 events.emit("indexupdated");
             })
         }).catch((e) => {
             // cannot find txhash
-            console.log(`txhash ${txhash} not found`);
+            console.log(`txhash ${txhash} not found`,e);
             events.emit("indexupdated");
         })
 

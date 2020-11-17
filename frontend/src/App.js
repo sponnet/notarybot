@@ -8,6 +8,15 @@ import Navigation from "./components/Navigation";
 import config from "./config";
 
 import { connect as connect_ws } from '@giantmachines/redux-websocket';
+import { Web3ReactProvider } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
+
+
+function getLibrary(provider) {
+    const library = new Web3Provider(provider);
+    library.pollingInterval = 12000;
+    return library;
+  }
 
 function App({ bootstrap }) {
 
@@ -17,6 +26,9 @@ function App({ bootstrap }) {
 
     return (
         <div className="App">
+
+<Web3ReactProvider getLibrary={getLibrary}>
+
             <BrowserRouter>
                 <Switch>
                     {Object.values(pages).map(({ RootComponent, parentPath, rootPath }) => (
@@ -41,6 +53,7 @@ function App({ bootstrap }) {
                     <Route component={CatchAll} />
                 </Switch>
             </BrowserRouter>
+            </Web3ReactProvider>
         </div>
     );
 }

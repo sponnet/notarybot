@@ -44,7 +44,7 @@ const indexerHandler = require("./hashindexer.js")();
 
 // bind events
 hashEvents.on("statschanged", () => {
-    console.log("index: stats chnged");
+    console.log("index: stats changed");
     socketHandler.events.emit("sendstats");
 })
 

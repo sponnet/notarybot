@@ -12,7 +12,7 @@ import { publicationStatus } from "../../../lib/api";
 import Identity from "../../../components/Identity";
 import moment from 'moment'
 
-const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, indexupdated, hashesqueuelength, queueHashes, nextnotaryevent, sendMessage }) => {
+const Comp = ({ addFiles, files, proofs, totalhashes, clearFiles, txhash, roothash, indexupdated, hashesqueuelength, queueHashes, nextnotaryevent, sendMessage }) => {
 
     const [newItemsCount, setNewItemsCount] = React.useState([]);
     const [nextEventDate, setNextEventDate] = React.useState();
@@ -26,12 +26,14 @@ const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, inde
         }
     };
 
-
     useEffect(() => {
-        if (nextnotaryevent) {
+        const now = Date.now();
+        if (nextnotaryevent && now < nextnotaryevent) {
             const nxt = moment(nextnotaryevent);
             console.log(`Setting new date ${nextnotaryevent}`, nxt);
             setNextEventDate(nxt);
+        } else {
+            setNextEventDate(null);
         }
     }, [nextnotaryevent]);
 
@@ -43,8 +45,17 @@ const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, inde
         setNewItemsCount(count);
     }, [files]);
 
+    console.log("proofs", proofs);
+
     const q = files ? files.map((hash, i) => {
         const notarized = hash.status === 3;
+        // if(proofs){
+        //     debugger;
+        // }
+        const sig = proofs ? proofs.find((p) => {
+            return p.hash === hash.hash
+        }) : null;
+
         return (
 
             <article key={i} className="post">
@@ -85,6 +96,9 @@ const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, inde
 
                                 )}
                             </p>
+                            {sig && (
+                                <>signed</>
+                            )}
                         </div>
                     </div>
                     <div className="media-right is-success">
@@ -131,14 +145,20 @@ const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, inde
 
     return (
         <div className="container">
-
             <nav className="level">
                 <div className="level-item has-text-centered">
                     <div>
                         <p className="heading">Next Notary Event</p>
                         <p className="title">{nextEventDate ? (
-                            <ReactMomentCountDown toDate={nextEventDate} />
-                        ) : (<span></span>)}</p>
+                            <>
+                                <ReactMomentCountDown
+                                    toDate={nextEventDate}
+                                    onCountdownEnd={() => {
+                                        setNextEventDate(null)
+                                    }}
+                                />
+                            </>
+                        ) : (<span>&nbsp;</span>)}</p>
                         <span className="is-size-7">
                             <Link
 
@@ -171,7 +191,7 @@ const Comp = ({ addFiles, files, totalhashes, clearFiles, txhash, roothash, inde
                                 pathname: "/me"
                             }}
                         >Me</Link></p>
-                         <span className="is-size-7">&nbsp;</span>
+                        <span className="is-size-7">&nbsp;</span>
                     </div>
                 </div>
             </nav>
@@ -215,6 +235,7 @@ const mapStateToProps = state => {
         roothash: state.main.roothash,
         indexupdated: state.main.indexupdated,
         files: state.main.files,
+        proofs: state.identity.proofs
     };
 };
 

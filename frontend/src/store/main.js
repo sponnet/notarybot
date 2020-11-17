@@ -137,11 +137,31 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 files: mergeFiles(state.files, action.res),
+                signfiles_bb: new PromiseBlackBox(res => ({ type: "SIGNFILES" }))
             }
         case "VERIFYFILES_ERROR":
             delete state.verifyfiles_bb;
             console.log(action.error);
             return state;
+
+        case "SIGNFILES":
+            if (!state.files) {
+                return state;
+            }
+
+            const hashesToSign = state.files.reduce((accum, ho) => {
+                if (ho.status !== 3 && !ho.signature) {
+                    accum.push(ho.hash);
+                }
+                return accum
+            }, []);
+
+            return {
+                ...state,
+                signfiles_bb: new PromiseBlackBox(
+                    res => ({ type: "SIGNHASHES", hashes: hashesToSign }))
+
+            }
 
         case "QUEUEHASHES":
             return {
@@ -163,7 +183,7 @@ const reducer = (state = initialState, action) => {
                         ...file,
                         status: publicationStatus.QUEUED
                     })
-                }else{
+                } else {
                     return file;
                 }
             })
