@@ -81,7 +81,7 @@ const Comp = ({ parentpath, txhash, roothash }) => {
         if (roothash && txhash) {
             readHash(roothash, txhash, PAGESIZE);
         }
-    }, [roothash, txhash]);
+    }, [roothash, txhash, readHash]);
 
     const [timeLine, setTimeLine] = useState([]);
     const [lastHash, setLastHash] = useState();
@@ -97,11 +97,11 @@ const Comp = ({ parentpath, txhash, roothash }) => {
                 {timeLine}
                 {!loading && (
                     <>
-                        {lastHash && lastHash.length>1 && lastTx ? (
+                        {lastHash && lastHash.length > 1 && lastTx ? (
                             <div className="timeline-header">
                                 <span className="tag is-medium is-primary" onClick={() => { readHash(lastHash, lastTx, PAGESIZE) }}>Load more</span>
 
-{lastHash}, {lastTx}                            </div>
+                                {lastHash}, {lastTx}                            </div>
                         ) : (
                                 <div className="timeline-header">
                                     <span className="tag is-medium is-primary">Start</span>
