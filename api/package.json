@@ -18,7 +18,7 @@
     "is-ipfs": "^0.6.1",
     "memory-cache": "^0.2.0",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "printf": "^0.5.1",
     "restify": "^8.3.3",
